@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock title %}
+
+{% block body %}
+<div style="text-align:center;padding:50px;" class="container"><h1>Responses</h1></div>
+
+<div class="container">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Email</th>
+        <th scope="col">Message</th>        
+      </tr>
+    </thead>
+    <tbody>
+        {% for x in mymembers %}
+      <tr>
+        <th scope="row">{{ x.id }}</th>
+        <td>{{ x.firstname }}</td>
+        <td>{{ x.lastname }}</td>        
+      </tr>      
+      {% endfor %}
+</tbody>
+</table>
+</div>
+
+{% endblock body %}

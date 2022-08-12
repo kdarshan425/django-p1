@@ -1,0 +1,48 @@
+!)django-admin startproject ecommerce
+
+
+2)settings.py > connect mysql databse
+
+(Error mysqlclient not installed)
+pip install mysqlclient
+
+3)Creating app :
+py manage.py startapp store
+
+4)Register app in settings.py(ecommerce project) under installed apps as 'store'
+
+5)Create urls.py in store
+path('', include('store.urls')) #register app in project urls.py
+Store url.py import path:
+
+from django.contrib import admin
+from django.urls import path
+from home import views
+
+admin.site.site_header = "Darshan Admin"
+admin.site.site_title = "Darshan Admin Portal"
+admin.site.index_title = "Welcome to Darshan Researcher Portal"
+
+urlpatterns = [
+    path('', views.index, name='home'),    
+]
+
+
+5)In store create templates folder (Here all your html files will be stored).
+
+6)views.py create home function and register this in urls.py
+
+7) Create Database in Mysql
+   In models.py create tables of databse register that tables in admin.py
+   Migrate the changes
+	Command - py manage.py makemigrations
+                py manage.py migrate
+
+7) Creating super user
+  python manage.py createsuperuser
+
+username pass= user(for this project)
+
+8)Install django jazzmin (optional):
+pip install django-jazzmin
+(Go to settings.py of project eccom and add 'jazzmin', in installed apps)
